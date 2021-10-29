@@ -2,7 +2,7 @@ import random
 import sys
 
 n = int(sys.argv[1])
-print(n)
+# print(n)
 m = int(sys.argv[2])
 
 secret = random.randint(1, n)
@@ -14,18 +14,22 @@ while True:
     if guess != secret:
         m -= 1
 
-        if guess < secret:
-            print('secret is more than ' + str(guess))
-        if guess > secret:
-            print('secret is less than ' + str(guess))
+        if m != 1:
+            print("\nYou have " + str(m) + ' moves left.' + '\n')
+        else:
+            print("\nYou have " + str(m) + ' move left.' + '\n')
 
-        continue
+        if guess < secret:
+            print('secret is more than ' + str(guess) + '\n')
+        if guess > secret:
+            print('secret is less than ' + str(guess)+ '\n')
     
     if m == 0:
-        print('You lost.')
+        print('\nYou lost.')
+        print("Secret was " + str(secret))
         exit()
     
     if guess == secret:
-        print("WOW WOW you won!!!")
+        print("\nWOW WOW you won!!!")
         exit()
 
